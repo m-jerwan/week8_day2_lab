@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "films")
@@ -13,14 +14,16 @@ public class Film {
     private int ageRating;
     private Director director;
     private Genre genre;
+    private Calendar relaseDate;
 
     public Film(){}
 
-    public Film(String title, int ageRating, Director director, Genre genre) {
+    public Film(String title, int ageRating, Director director, Genre genre, Calendar relaseDate) {
         this.title = title;
         this.ageRating = ageRating;
         this.director =director;
         this.genre = genre;
+        this.relaseDate= relaseDate;
     }
 
     @Id
@@ -69,5 +72,15 @@ public class Film {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+
+    @Column(name = "release_date")
+    public Calendar getRelaseDate() {
+        return relaseDate;
+    }
+
+    public void setRelaseDate(Calendar relaseDate) {
+        this.relaseDate = relaseDate;
     }
 }
