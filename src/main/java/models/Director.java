@@ -12,6 +12,8 @@ public class Director {
     private String name;
     private List<Film> films;
 
+    public Director() {
+    }
 
     public Director(String name) {
         this.name = name;

@@ -14,17 +14,17 @@ public class DBDirector {
     private static Session session;
 
 
-    public static List<Film> getFilmsByDir(Director director){
+    public static List<Film> getFilmsByDir(Director director) {
         session = HibernateUtil.getSessionFactory().openSession();
-
         List<Film> result = null;
 
         try {
             Criteria cr = session.createCriteria(Film.class);
             cr.add(Restrictions.eq("director", director));
             result = cr.list();
-        } catch (HibernateException ex){
+        } catch (HibernateException ex) {
             ex.printStackTrace();
+
         } finally {
             session.close();
         }
